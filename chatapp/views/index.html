@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/socket.io-client/dist/socket.io.js" ></script>
+</head>
+<body>
+小红
+<script>
+    //console.log(io)
+    var con=io.connect('http://localhost:3000')
+    con.on('connect',function (data) {
+        console.log('新的客服端连接成功')
+    })
+    con.on('news',function (data) {
+        console.log(data)
+    })
+    con.on('addUser',function (data) {
+        console.log(data)
+    })
+    //con.emit('myEvent',{content:'吃饭了没有'})
+    con.on('hello',function (data) {
+        console.log(data)
+    })
+    con.on('send',function (data) {
+        console.log(data)
+    })
+
+</script>
+</body>
+</html>

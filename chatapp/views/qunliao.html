@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/socket.io-client/dist/socket.io.js" ></script>
+</head>
+<body>
+<script>
+    var con=io.connect('http://localhost:3000')
+    con.on('connect',function (data) {
+        console.log('新的客服端连接成功')
+        con.emit('joinRoom',{
+            room:'qunliao'
+        })
+    })
+/*con.emit('sendMsgroom',{
+    //room: 'qunliao',
+    //content:'来自群聊里面的内容'
+})*/
+    con.on('qunliao',function (data) {
+        console.log(data)
+    })
+</script>
+</body>
+</html>
